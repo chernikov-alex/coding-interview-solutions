@@ -30,7 +30,7 @@ The focus is not only on solving problems, but on writing **clean, readable, and
 ---
 
 ## 📁 Repository structure
-coding-interview-solutions/
+```coding-interview-solutions/
 ├── data-structures/
 │ ├── lifo-stack/
 │ ├── fifo-queue/
@@ -45,3 +45,38 @@ coding-interview-solutions/
 │ ├── factory/
 │
 └── README.md
+```
+
+Each solution typically includes:
+- Problem description
+- One or more implementations
+- Explanation of the approach
+- Time & space complexity
+- (When relevant) unit tests
+
+---
+
+## 🧠 Example topics covered
+
+- Implementing Stack (LIFO) and Queue (FIFO)
+- Using interfaces and polymorphism
+- Annotation-based selection with reflection
+- Dependency Injection concepts
+- Edge-case handling
+- Performance considerations
+
+---
+
+## 🚀 About me
+
+I am a **Senior Backend Java Developer** with experience building **large-scale distributed systems** and **microservice-based platforms**.
+
+Currently working on backend services for an **EV charging management system**, focusing on Java/Kotlin, Spring Boot, APIs, and cloud-native architectures.
+
+🔗 LinkedIn: https://www.linkedin.com/in/alexander-chernikov-0544533810
+
+---
+
+## 📌 Notes
+
+This repository is continuously updated as I practice new problems and improve existing solutions.
