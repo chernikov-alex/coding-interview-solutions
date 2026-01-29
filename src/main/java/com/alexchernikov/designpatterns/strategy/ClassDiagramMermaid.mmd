@@ -1,0 +1,53 @@
+classDiagram
+    direction LR
+
+%% ===== ENUM =====
+    class StorageType {
+        <<enum>>
+        FIFO
+        LIFO
+    }
+
+%% ===== ANNOTATION =====
+    class StorageStrategy {
+        <<annotation>>
+        +type : StorageType
+    }
+
+%% ===== INTERFACE =====
+    class Storage~T~ {
+        <<interface>>
+        +add(item : T)
+        +remove() T
+        +size() int
+    }
+
+%% ===== IMPLEMENTATIONS =====
+    class FifoStorage~T~ {
+        +add(item : T)
+        +remove() T
+        +size() int
+    }
+
+    class LifoStorage~T~ {
+        +add(item : T)
+        +remove() T
+        +size() int
+    }
+
+%% ===== SELECTOR =====
+    class StorageSelector {
+        -storages : Map~StorageType, Storage~
+        +getStorage(type : StorageType) Storage
+    }
+
+%% ===== RELATIONSHIPS =====
+    Storage <|.. FifoStorage
+    Storage <|.. LifoStorage
+
+    StorageStrategy --> StorageType
+    FifoStorage ..> StorageStrategy : annotated with
+    LifoStorage ..> StorageStrategy : annotated with
+
+    StorageSelector --> StorageType
+    StorageSelector --> Storage
