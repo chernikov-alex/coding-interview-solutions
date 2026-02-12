@@ -6,6 +6,7 @@ import java.util.concurrent.Flow.Subscription;
 public class MessageListener implements Subscriber<ImportantMessage> {
 
     private final int id;
+    private Subscription subscription;
 
     public MessageListener(int id) {
         this.id = id;
@@ -15,6 +16,7 @@ public class MessageListener implements Subscriber<ImportantMessage> {
     public void onSubscribe(Subscription subscription) {
         System.out.println("Listener " + id + " successfully subscribed");
         // when the Listener requests n messages, it will receive up to n additional onNext invocations
+        this.subscription = subscription;
         subscription.request(1);
         // Todo
     }
@@ -22,7 +24,7 @@ public class MessageListener implements Subscriber<ImportantMessage> {
     @Override
     public void onNext(ImportantMessage item) {
         System.out.println("Listener " + id + ": " + item);
-        // Todo
+        subscription.request(1);
     }
 
     @Override
@@ -36,10 +38,10 @@ public class MessageListener implements Subscriber<ImportantMessage> {
     }
 
     public void mute() {
-        // Todo
+        subscription.cancel();
     }
 
     public void unmute() {
-        // Todo
+        subscription.request(1);
     }
 }
